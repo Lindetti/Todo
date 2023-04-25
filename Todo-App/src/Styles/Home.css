@@ -1,0 +1,63 @@
+.task-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.links {
+  background-color: pink;
+  height: 100vh;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.links a {
+  margin-top: 1rem;
+}
+
+.task-content {
+  background-color: pink;
+  width: 100%;
+  overflow: auto;
+}
+
+.addTaskBtn {
+  padding: 1rem;
+  padding-left: 2.5rem;
+}
+
+.addTaskBtn button {
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.test2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.items {
+  justify-content: center;
+  align-items: center;
+}
+
+.test {
+  width: 250px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background-color: lavender;
+  padding: 1rem;
+}
