@@ -1,11 +1,11 @@
 import "../Styles/Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ itemLength }) => {
   return (
     <nav>
       <p>Done: </p>
       <p>To do: </p>
-      <p>All: </p>
+      <p>All: {itemLength}</p>
     </nav>
   );
 };

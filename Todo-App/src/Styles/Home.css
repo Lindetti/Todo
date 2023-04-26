@@ -39,10 +39,11 @@
 
 .test2 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
+  padding: 1.8rem;
 }
 
 .items {
@@ -60,4 +61,8 @@
   margin-bottom: 1rem;
   background-color: lavender;
   padding: 1rem;
+}
+
+.remove-icon:hover {
+  cursor: pointer;
 }
