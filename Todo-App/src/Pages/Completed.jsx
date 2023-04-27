@@ -2,7 +2,7 @@ import "../Styles/Home.css";
 import { NavLink } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 
-const Completed = () => {
+const Completed = ({ taskDone }) => {
   return (
     <>
       <div className="task-wrapper">

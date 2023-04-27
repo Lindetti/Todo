@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Modal from "../Components/Modal/Modal";
 
-const Home = ({ items, setItems }) => {
+const Home = ({ items, setItems, completed }) => {
   const [isModalActive, setIsModalActive] = useState(false);
   const [itemInput, setItemInput] = useState("");
 
@@ -36,7 +36,9 @@ const Home = ({ items, setItems }) => {
       title: document.getElementById("title").value,
       description: document.getElementById("description").value,
       date: document.getElementById("date").value,
+      state: "inprogress",
     };
+
     addItem(newItem);
     setIsModalActive(false);
     event.target.reset();
@@ -62,7 +64,6 @@ const Home = ({ items, setItems }) => {
                     <div className="remove-item">
                       <div>
                         <p>{item.title}</p>
-                        <img />
                       </div>
                       <p>{item.description}</p>
                       <p>{item.date}</p>
@@ -74,6 +75,7 @@ const Home = ({ items, setItems }) => {
                       />
                     </div>
                   </div>
+                  <button onClick={completed}>Done</button>
                 </div>
               );
             })}
