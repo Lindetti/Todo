@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Modal from "../Components/Modal/Modal";
 
-const Home = ({ items, setItems, completed }) => {
+const Home = ({ items, setItems, completed, setTaskDone }) => {
   const [isModalActive, setIsModalActive] = useState(false);
   const [itemInput, setItemInput] = useState("");
 
@@ -11,6 +11,7 @@ const Home = ({ items, setItems, completed }) => {
     const updatedItems = [...items];
     updatedItems.splice(index, 1);
     setItems(updatedItems);
+    setTaskDone(updatedItems);
   };
 
   const showModal = () => {
@@ -42,6 +43,7 @@ const Home = ({ items, setItems, completed }) => {
     addItem(newItem);
     setIsModalActive(false);
     event.target.reset();
+    setIsDone(false);
   };
 
   return (

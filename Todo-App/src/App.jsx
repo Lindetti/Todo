@@ -11,10 +11,12 @@ function App() {
   const [items, setItems] = useState([]);
   const [inprogress, setInprogress] = useState([]);
   const [taskDone, setTaskDone] = useState([]);
+  const [isDone, setIsDone] = useState(false);
 
-  const handleComplete = (index) => {
-    const completedItems = [...items, index];
+  const handleComplete = () => {
+    const completedItems = [...items];
     setTaskDone(completedItems);
+    setIsDone(!isDone);
   };
 
   useEffect(() => {
@@ -32,6 +34,8 @@ function App() {
               completed={handleComplete}
               items={items}
               setItems={setItems}
+              setTaskDone={setTaskDone}
+              setIsDone={setIsDone}
             />
           }
         />
@@ -39,13 +43,26 @@ function App() {
           path="/inprogress"
           element={
             <Inprogress
+              setIsDone={setIsDone}
+              isDone={isDone}
+              completed={handleComplete}
               items={items}
               setItems={setItems}
               inprogress={inprogress}
             />
           }
         />
-        <Route path="/completed" element={<Completed taskDone={taskDone} />} />
+        <Route
+          path="/completed"
+          element={
+            <Completed
+              taskDone={taskDone}
+              setTaskDone={setTaskDone}
+              items={items}
+              setItems={setItems}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </div>

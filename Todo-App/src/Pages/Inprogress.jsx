@@ -2,7 +2,14 @@ import "../Styles/Home.css";
 import { NavLink } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 
-const Inprogress = ({ inprogress, items, setItems }) => {
+const Inprogress = ({
+  inprogress,
+  items,
+  setItems,
+  completed,
+  isDone,
+  setIsDone,
+}) => {
   const deleteFunction = (index) => {
     const updatedItems = [...items];
     updatedItems.splice(index, 1);
@@ -20,27 +27,30 @@ const Inprogress = ({ inprogress, items, setItems }) => {
         <div className="task-content">
           <p>Inprogress</p>
           <div className="test2">
-            {inprogress.map((item, index) => {
-              return (
-                <div key={index} className="items">
-                  <div className="test">
-                    <div className="remove-item">
-                      <div>
-                        <p>{item.title}</p>
+            {!isDone
+              ? inprogress.map((item, index) => {
+                  return (
+                    <div key={index} className="items">
+                      <div className="test">
+                        <div className="remove-item">
+                          <div>
+                            <p>{item.title}</p>
+                          </div>
+                          <p>{item.description}</p>
+                          <p>{item.date}</p>
+                          <img
+                            className="remove-icon"
+                            onClick={() => deleteFunction(index)}
+                            src="/trash-can.svg"
+                            alt="trash can, click it to delete"
+                          />
+                        </div>
                       </div>
-                      <p>{item.description}</p>
-                      <p>{item.date}</p>
-                      <img
-                        className="remove-icon"
-                        onClick={() => deleteFunction(index)}
-                        src="/trash-can.svg"
-                        alt="trash can, click it to delete"
-                      />
+                      <button onClick={completed}>Done</button>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  );
+                })
+              : null}
           </div>
         </div>
       </div>

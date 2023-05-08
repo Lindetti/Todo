@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../../Styles/Modal.css";
 
 const Modal = ({
@@ -10,6 +11,9 @@ const Modal = ({
   const modalClassName = showModal
     ? "modal display-block"
     : "modal display-none";
+
+  const [startDate, setStartDate] = useState(null);
+
   return (
     <div className={modalClassName}>
       <div className="modal">
@@ -33,6 +37,7 @@ const Modal = ({
               <input
                 className="date"
                 type="date"
+                min={new Date().toISOString().split("T")[0]}
                 onChange={(event) => handleOnChange(event, "date")}
                 value={handleInput.date}
                 id="date"
