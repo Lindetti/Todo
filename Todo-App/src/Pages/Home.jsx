@@ -43,7 +43,7 @@ const Home = ({ items, setItems, completed, setTaskDone }) => {
     addItem(newItem);
     setIsModalActive(false);
     event.target.reset();
-    setIsDone(false);
+    // setIsDone(false);
   };
 
   return (
@@ -51,7 +51,7 @@ const Home = ({ items, setItems, completed, setTaskDone }) => {
       <div className="task-wrapper">
         <div className="links">
           <NavLink to="/">All my task</NavLink>
-          <NavLink to="/inprogress">Inprogress</NavLink>
+          {/* <NavLink to="/inprogress">Inprogress</NavLink>  */}
           <NavLink to="/completed">Completed</NavLink>
         </div>
         <div className="task-content">
@@ -61,23 +61,26 @@ const Home = ({ items, setItems, completed, setTaskDone }) => {
           <div className="test2">
             {items.map((item, index) => {
               return (
-                <div key={index} className="items">
+                <div key={index} className="card">
                   <div className="test">
-                    <div className="remove-item">
-                      <div>
-                        <p>{item.title}</p>
+                    <div className="item-content">
+                      <div className="check" onClick={completed}>
+                        <img src="/check.svg" alt="done" />
                       </div>
-                      <p>{item.description}</p>
+                      <div className="title">
+                        <h2>{item.title}</h2>
+                      </div>
+                      <h5>{item.description}</h5>
                       <p>{item.date}</p>
+                    </div>
+                    <div className="remove-item">
                       <img
-                        className="remove-icon"
                         onClick={() => deleteFunction(index)}
-                        src="/trash-can.svg"
+                        src="/white-trashcan.svg"
                         alt="trash can, click it to delete"
                       />
                     </div>
                   </div>
-                  <button onClick={completed}>Done</button>
                 </div>
               );
             })}

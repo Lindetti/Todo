@@ -21,8 +21,8 @@ const Inprogress = ({
       <div className="task-wrapper">
         <div className="links">
           <NavLink to="/">All my task</NavLink>
-          <NavLink to="/inprogress">Inprogress</NavLink>
-          <NavLink to="/completed">Completed</NavLink>
+          {/* <NavLink to="/inprogress">Inprogress</NavLink>
+          <NavLink to="/completed">Completed</NavLink> */}
         </div>
         <div className="task-content">
           <p>Inprogress</p>

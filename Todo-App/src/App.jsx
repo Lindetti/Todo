@@ -17,6 +17,7 @@ function App() {
     const completedItems = [...items];
     setTaskDone(completedItems);
     setIsDone(!isDone);
+    console.log("click");
   };
 
   useEffect(() => {
@@ -39,7 +40,7 @@ function App() {
             />
           }
         />
-        <Route
+        {/* <Route
           path="/inprogress"
           element={
             <Inprogress
@@ -51,7 +52,7 @@ function App() {
               inprogress={inprogress}
             />
           }
-        />
+        /> */}
         <Route
           path="/completed"
           element={
